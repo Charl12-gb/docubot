@@ -1,0 +1,53 @@
+# IA Générative pour l'Aide à la Recherche de Politiques et Procédures d'Entreprise
+
+## Objectif :
+
+- Développer une IA générative sous forme de chatbot capable d'aider les employés d'une entreprise à trouver plus facilement des informations dans les politiques, procédures et autres documents importants. De plus, l'application doit gérer les alertes de révision des documents, permettant aux administrateurs de configurer les responsables des documents et de recevoir des notifications avant les dates de révision.
+
+### Fonctionnalités Clés
+1. Recherche contextuelle :
+    ◦ Permet aux utilisateurs de poser des questions en langage naturel pour trouver des informations dans les documents.
+Exemple :
+Utilisateur : Quelle est la politique de congé maladie ?
+IA : (Polique N°1 – Nom de la politique) La politique de congé maladie permet aux employés de prendre des congés en cas de maladie justifiée par un certificat médical.
+<link document>
+
+2. Suggestions proactives :
+
+- Proposer des documents ou des informations pertinentes basées sur les interactions précédentes.
+
+- Exemple :
+```
+Utilisateur : J'ai besoin de plus d'informations sur les congés payés.
+IA : Reponse
+IA : Vous pourriez également être intéressé par notre politique de vacances annuelles et les procédures de demande de congé.
+<link document>
+``` 
+
+3. Suggestion
+
+4. Application web a ajouté aux favoris
+
+5. Intégration avec d'autres outils :
+- Intégrer le chatbot avec des outils de communication d'entreprise comme Microsoft Teams.
+
+Exemple :
+```
+Utilisateur (dans Slack) : Quelle est la procédure pour demander un remboursement de frais ?
+IA : La procédure de remboursement de frais est la suivante : [lien vers le document]. Vous pouvez également la trouver dans notre espace partagé Teams.
+```
+
+6. Sécurité et conformité :
+- Gérer l'accès basé sur les rôles et assurer la traçabilité des interactions avec l'IA.
+- Préload les adresses emails.
+- Validation après inscription ou connexion avec active directory
+- Au premier accès l’utilisateur doit s’authentifier
+- Reload les données (emails)
+- Ajouter un utilisateur
+- Supprimer un utilisateur
+
+7. Ajouter un blog accessible par département (Pour avoir les nouvelles informations)
+- Personnalisable par département
+- Configurer la date de sauvegarde des données
+- Liste des informations (title, description, lien)
+- Chatbot de discussion pour plus de détails sur la nouvelle information
