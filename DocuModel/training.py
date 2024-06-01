@@ -4,7 +4,7 @@ import sys
 # Assurez-vous que le chemin vers les modules de votre projet est correctement ajouté
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from transformers import GPTJForCausalLM, AutoTokenizer, Trainer, TrainingArguments
+from transformers import GPTNeoForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 import torch
 from AnalyzeDoc.analyzer_main import launch_main
 from AnalyzeDoc.general.preprocessed_text import load_preprocessed_text
@@ -12,10 +12,10 @@ from AnalyzeDoc.general.preprocessed_text import load_preprocessed_text
 # Lancez la fonction principale de l'analyse
 launch_main()
 
-# Charger le tokenizer et le modèle GPT-J
-tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-j-6B')
+# Charger le tokenizer et le modèle GPT-Neo
+tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-neo-1.3B')
 tokenizer.pad_token = tokenizer.eos_token
-model = GPTJForCausalLM.from_pretrained('EleutherAI/gpt-j-6B')
+model = GPTNeoForCausalLM.from_pretrained('EleutherAI/gpt-neo-1.3B')
 
 # Charger les données prétraitées
 preprocessed_text, language = load_preprocessed_text()
@@ -25,7 +25,7 @@ texts = preprocessed_text.split('.')
 
 if len(texts) < 2:
     raise ValueError("Not enough texts to split into train and validation sets.")
-labels = [0] * len(texts)  # Placeholder pour les labels (pas utilisé pour GPT-J dans ce contexte)
+labels = [0] * len(texts)  # Placeholder pour les labels (pas utilisé pour GPT-Neo dans ce contexte)
 
 # Tokenizer les textes
 encodings = tokenizer(texts, truncation=True, padding=True, max_length=512, return_tensors='pt')
@@ -78,7 +78,7 @@ trainer = Trainer(
 trainer.train()
 
 # Définir le chemin de sauvegarde pour le modèle fine-tuné
-fine_tuned_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.getenv('Fine_Tuned_Gpt_J_Path', 'fine_tuned/fine_tuned_gpt_j')))
+fine_tuned_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.getenv('Fine_Tuned_Gpt_J_Path', 'fine_tuned/fine_tuned_gpt_neo')))
 
 # Créer le répertoire s'il n'existe pas
 os.makedirs(fine_tuned_path, exist_ok=True)
