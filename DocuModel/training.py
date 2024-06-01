@@ -12,10 +12,10 @@ from AnalyzeDoc.general.preprocessed_text import load_preprocessed_text
 # Lancez la fonction principale de l'analyse
 launch_main()
 
-# Charger le tokenizer et le modèle GPT-Neo
-tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-neo-1.3B')
+# Charger le tokenizer et le modèle GPT-Neo (version plus petite)
+tokenizer = AutoTokenizer.from_pretrained('EleutherAI/gpt-neo-125M')
 tokenizer.pad_token = tokenizer.eos_token
-model = GPTNeoForCausalLM.from_pretrained('EleutherAI/gpt-neo-1.3B')
+model = GPTNeoForCausalLM.from_pretrained('EleutherAI/gpt-neo-125M')
 
 # Charger les données prétraitées
 preprocessed_text, language = load_preprocessed_text()
@@ -58,8 +58,8 @@ train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size,
 # Définir les arguments d'entraînement pour le modèle
 training_args = TrainingArguments(
     output_dir='./results',
-    per_device_train_batch_size=1,
-    per_device_eval_batch_size=1,
+    per_device_train_batch_size=1,  # Réduit la taille du batch
+    per_device_eval_batch_size=1,   # Réduit la taille du batch
     num_train_epochs=3,
     logging_dir='./logs',
     logging_steps=100,
@@ -67,6 +67,7 @@ training_args = TrainingArguments(
     eval_strategy="steps",  # Mis à jour ici
     eval_steps=500,
     save_total_limit=2,
+    fp16=True  # Active le mode mixed precision
 )
 
 # Entraîner le modèle
