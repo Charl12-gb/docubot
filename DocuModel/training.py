@@ -30,6 +30,9 @@ labels = [0] * len(texts)  # Placeholder pour les labels (pas utilisé pour GPT-
 # Tokenizer les textes
 encodings = tokenizer(texts, truncation=True, padding=True, max_length=512, return_tensors='pt')
 
+# Ajoutez des labels aux encodages (GPT utilise les labels pour la prédiction suivante)
+encodings['labels'] = encodings['input_ids'].clone()
+
 # Définir une classe de dataset personnalisée
 class CustomDataset(torch.utils.data.Dataset):
     def __init__(self, encodings):
