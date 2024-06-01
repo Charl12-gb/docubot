@@ -7,7 +7,7 @@ from nltk.tokenize import word_tokenize
 def clean_text(text):
     text = text.lower()  # Conversion en minuscules
     text = re.sub(r'\s+', ' ', text)  # Suppression des espaces supplémentaires
-    text = re.sub(r'[^a-zA-ZÀ-ÿ\s]', '', text)  # Suppression des caractères spéciaux
+    text = re.sub(r'[^a-zA-ZÀ-ÿ\s\.]', '', text)  # Suppression des caractères spéciaux
     return text
 
 def preprocess_text(cleaned_text, language='english'):

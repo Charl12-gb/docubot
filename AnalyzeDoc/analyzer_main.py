@@ -20,7 +20,7 @@ from AnalyzeDoc.general.traity_preprocessed_text import preprocess_text
 from AnalyzeDoc.general.preprocessed_text import save_preprocessed_text
 from colorama import Fore, Style
 
-doc_paths = [os.path.abspath(os.path.join(base_dir, "dataset", "doc_word2.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word3.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word4.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word5.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word6.docx"))]
+doc_paths = [os.path.abspath(os.path.join(base_dir, "dataset", "doc_word2.docx"))] #, os.path.abspath(os.path.join(base_dir, "dataset", "doc_word3.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word4.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word5.docx")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_word6.docx"))]
 pdf_paths = [os.path.abspath(os.path.join(base_dir, "dataset", "doc_pdf1.pdf")), os.path.abspath(os.path.join(base_dir, "dataset", "doc_pdf2.pdf"))]
 text_paths = [os.path.abspath(os.path.join(base_dir, "dataset", "doc_txt1.txt"))]
 excel_paths = [os.path.abspath(os.path.join(base_dir, "dataset", "doc_excel1.xlsx"))]
