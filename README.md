@@ -1,6 +1,3 @@
-Voici un exemple de document `README` formaté pour Git en utilisant le contenu que vous avez fourni :
-
-```markdown
 # IA Générative pour l'Aide à la Recherche de Politiques et Procédures d'Entreprise
 
 ## Objectif
